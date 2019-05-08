@@ -1,20 +1,20 @@
 import React from 'react';
 import Ball from './Ball';
-import '../styles.css';
+import '../styles.scss';
 
 function BallList(props) {
   const { balls, size, borderRadius } = props;
 
   return (
-    <div>
+    <section className="App">
       {balls.map(ball => (
         <Ball
           size={size}
-          radius={borderRadius}
+          borderRadius={borderRadius}
           backgroundColor={ball.colorFill}
         />
       ))}
-    </div>
+    </section>
   );
 }
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Ball from './components/Ball';
 import RangeSlider from './components/RangeSlider';
 
-import './styles.css';
+import './styles.scss';
 import BallList from './components/BallList';
 
 class App extends Component {
@@ -77,8 +77,6 @@ class App extends Component {
         />
 
         <BallList balls={balls} size={size} borderRadius={borderRadius} />
-
-        <section>{balls.map(this.renderBall)}</section>
       </>
     );
   }

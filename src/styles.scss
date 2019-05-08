@@ -10,9 +10,13 @@ body {
   margin-top: 10px;
 }
 
-.ballStyle {
+.Ball {
   margin: 15px;
   color: '#fff';
+  
+  &.active {
+    border: 5px solid black;
+  }
 }
 
 button {
