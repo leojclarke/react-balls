@@ -3,17 +3,13 @@ import '../styles.scss';
 
 class Ball extends Component {
   state = {
-    className: 'Ball',
+    active: false,
   };
 
   handleBallClick = () => {
-    this.state.className === 'Ball'
-      ? this.setState({
-          className: 'Ball active',
-        })
-      : this.setState({
-          className: 'Ball',
-        });
+    this.setState({
+      active: !this.state.active,
+    });
   };
 
   render() {
@@ -25,12 +21,10 @@ class Ball extends Component {
       height: size + 'px',
       width: size + 'px',
     };
+    const className = this.state.active ? 'Ball active' : 'Ball';
+
     return (
-      <div
-        style={style}
-        className={this.state.className}
-        onClick={this.handleBallClick}
-      />
+      <div style={style} className={className} onClick={this.handleBallClick} />
     );
   }
 }
