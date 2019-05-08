@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Ball from './components/Ball';
+import RangeSlider from './components/RangeSlider';
 
 import './styles.css';
-import Ball from './Ball';
+import BallList from './components/BallList';
 
 class App extends Component {
   state = {
@@ -54,35 +56,27 @@ class App extends Component {
           <h2>A simple react App for creating and handling... BALLS!</h2>
         </div>
 
-        <form onSubmit={this.handleAddBall}>
-          <div className="App">
-            <button>ADD BALL</button>
-          </div>
+        <div className="App">
+          <button onClick={this.handleAddBall}>ADD BALL</button>
+        </div>
 
-          <div className="App">
-            <input
-              name="ballSize"
-              type="range"
-              min="20"
-              max="200"
-              value={size}
-              onChange={this.handleSizeChange}
-            />
-            Size: {this.state.size}
-          </div>
+        <RangeSlider
+          name="Size"
+          value={size}
+          min="20"
+          max="200"
+          onChange={this.handleSizeChange}
+        />
 
-          <div className="App">
-            <input
-              name="ballShape"
-              type="range"
-              min="0"
-              max="50"
-              value={borderRadius}
-              onChange={this.handleRadiusChange}
-            />
-            Radius: {this.state.borderRadius}
-          </div>
-        </form>
+        <RangeSlider
+          name="BorderRadius"
+          value={borderRadius}
+          min="0"
+          max="50"
+          onChange={this.handleRadiusChange}
+        />
+
+        <BallList balls={balls} size={size} borderRadius={borderRadius} />
 
         <section>{balls.map(this.renderBall)}</section>
       </>
